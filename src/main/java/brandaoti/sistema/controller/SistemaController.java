@@ -94,24 +94,26 @@ public class SistemaController extends HttpServlet {
 			HttpSession session = request.getSession();
 			total = 0;
 			jogando = false;
-			participantes.clear();
 			letraAleatoria = "-";
-			assuntos.clear();
 			finalizou = false;
 			todosAceitaram = false;
 			
+			try {
+				participantes.clear();
+				assuntos.clear();
+				if(perguntasRespostasDao.findAll().size() > 0) {
+					for(PerguntasRespostas pr : perguntasRespostasDao.findAll()) {
+						perguntasRespostasDao.delete(pr);
+					}
+				}
+				if(usuarioDao.findAll().size() > 0) {
+					for(Usuario usr : usuarioDao.findAll()) {
+						usuarioDao.delete(usr);
+					}
+				}
+				session.invalidate();
+			} catch(Exception e) {}
 			
-			if(perguntasRespostasDao.findAll().size() > 0) {
-				for(PerguntasRespostas pr : perguntasRespostasDao.findAll()) {
-					perguntasRespostasDao.delete(pr);
-				}
-			}
-			if(usuarioDao.findAll().size() > 0) {
-				for(Usuario usr : usuarioDao.findAll()) {
-					usuarioDao.delete(usr);
-				}
-			}
-			session.invalidate();
 			response.sendRedirect("/index");
 		}
 		
