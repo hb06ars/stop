@@ -101,13 +101,15 @@ public class SistemaController extends HttpServlet {
 			try {
 				participantes.clear();
 				assuntos.clear();
-				if(perguntasRespostasDao.findAll().size() > 0) {
-					for(PerguntasRespostas pr : perguntasRespostasDao.findAll()) {
+				List<PerguntasRespostas> lp = perguntasRespostasDao.findAll();
+				if(lp.size() > 0) {
+					for(PerguntasRespostas pr : lp) {
 						perguntasRespostasDao.delete(pr);
 					}
 				}
-				if(usuarioDao.findAll().size() > 0) {
-					for(Usuario usr : usuarioDao.findAll()) {
+				List<Usuario> lu = usuarioDao.findAll();
+				if(lu.size() > 0) {
+					for(Usuario usr : lu) {
 						usuarioDao.delete(usr);
 					}
 				}
