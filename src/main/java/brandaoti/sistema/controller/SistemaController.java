@@ -59,7 +59,6 @@ public class SistemaController extends HttpServlet {
 			finalizou = false;
 		}
 		
-		@SuppressWarnings("unused")
 		public void gerarLetra() {
 			if(letraAleatoria.equals("-")) {
 				String letra = "A";
@@ -101,7 +100,6 @@ public class SistemaController extends HttpServlet {
 			finalizou = false;
 			todosAceitaram = false;
 			
-			participantes.remove(session.getAttribute("usuarioSessao"));
 			
 			if(perguntasRespostasDao.findAll().size() > 0) {
 				for(PerguntasRespostas pr : perguntasRespostasDao.findAll()) {
@@ -114,7 +112,7 @@ public class SistemaController extends HttpServlet {
 				}
 			}
 			session.invalidate();
-			response.sendRedirect("/");
+			response.sendRedirect("/index");
 		}
 		
 		

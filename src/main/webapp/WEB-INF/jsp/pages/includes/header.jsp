@@ -84,6 +84,9 @@
                     <a>${usuarioSessao.pontuacaoGeral } pontos.</a>
                 </li>
                 <li>
+                    <a href="/zerar">Deslogar todos</a>
+                </li>
+                <li>
                     <a href="/deslogar">Sair</a>
                 </li>
             </ul>
