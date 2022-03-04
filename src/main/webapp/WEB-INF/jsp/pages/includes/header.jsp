@@ -76,15 +76,12 @@
             </div>
 
             <div class="sidebar-header">
-                <h3>Menu</h3>
+                <h3>${usuarioSessao.nome }</h3>
             </div>
 
             <ul class="list-unstyled components">
                 <li>
-                    <a href="#">Home</a>
-                </li>
-                <li>
-                    <a href="#">Novo</a>
+                    <a>${usuarioSessao.pontuacaoGeral } pontos.</a>
                 </li>
                 <li>
                     <a href="/deslogar">Sair</a>

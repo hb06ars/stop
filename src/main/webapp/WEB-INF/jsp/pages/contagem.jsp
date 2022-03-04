@@ -288,8 +288,13 @@ function json_Recusar(json) {
 
 <div class="row">
 	<div class="col-12 text-center">
-		<h2>${ usuarioSessao.nome }, seu tempo acabou.</h2>
-		<br><h4>Pontuação:</h4>
+		<h2>${ usuarioSessao.nome }, o seu tempo acabou.</h2>
+		<h4>
+		Calcule sua pontuação: <br>
+		<span class="fa fa-minus-circle" style=color:red></span> 0 pontos,
+		<span class="fa fa-minus-circle" style=color:green></span> 10 pontos e 
+		<span class="fa fa-minus-circle" style=color:orange></span> 5 pontos
+		</h4>
 	</div>
 </div>
 

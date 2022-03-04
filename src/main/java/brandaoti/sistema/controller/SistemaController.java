@@ -90,6 +90,34 @@ public class SistemaController extends HttpServlet {
 		}
 		
 		
+		@RequestMapping(value = {"/zerar"}, produces = "text/plain;charset=UTF-8", method = RequestMethod.GET) // Pagina de Vendas
+		public void zerar(HttpServletRequest request, HttpServletResponse response, @RequestParam(value = "nome", required = false, defaultValue = "Henrique Brandão") String nome) throws SQLException, ServletException, IOException { //Funcao e alguns valores que recebe...
+			HttpSession session = request.getSession();
+			total = 0;
+			jogando = false;
+			participantes.clear();
+			letraAleatoria = "-";
+			assuntos.clear();
+			finalizou = false;
+			todosAceitaram = false;
+			
+			participantes.remove(session.getAttribute("usuarioSessao"));
+			
+			if(perguntasRespostasDao.findAll().size() > 0) {
+				for(PerguntasRespostas pr : perguntasRespostasDao.findAll()) {
+					perguntasRespostasDao.delete(pr);
+				}
+			}
+			if(usuarioDao.findAll().size() > 0) {
+				for(Usuario usr : usuarioDao.findAll()) {
+					usuarioDao.delete(usr);
+				}
+			}
+			session.invalidate();
+			response.sendRedirect("/");
+		}
+		
+		
 		
 		@RequestMapping(value = {"/","/index"}, produces = "text/plain;charset=UTF-8", method = RequestMethod.GET) // Pagina de Vendas
 		public void login(HttpServletRequest request, HttpServletResponse response, @RequestParam(value = "nome", required = false, defaultValue = "Henrique Brandão") String nome) throws SQLException, ServletException, IOException { //Funcao e alguns valores que recebe...

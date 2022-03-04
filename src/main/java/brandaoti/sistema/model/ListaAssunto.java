@@ -5,8 +5,8 @@ public class ListaAssunto {
 	public static String[] gerar() {
 		String[] assunto = {
 				
-				"Nome de Pessoa", 
-				"Nome de País", 
+				"Pessoa", 
+				"País", 
 				"Cor", 
 				"Fruta", 
 				"Carro", 
@@ -14,7 +14,7 @@ public class ListaAssunto {
 				"Marcas", 
 				"Objeto", 
 				"Estado", 
-				"Comida típica", 
+				"Comida", 
 				"Animal", 
 				"Filme", 
 				"Palavra positiva"
